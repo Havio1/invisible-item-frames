@@ -1,4 +1,4 @@
-package ciif.mixin;
+package invisible_item_frames.mixin;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.decoration.GlowItemFrameEntity;
@@ -23,7 +23,7 @@ public abstract class GlowItemFrameEntityMixin extends ItemFrameEntityMixin {
 
     @Inject(method = "getAsItemStack", at = @At("HEAD"), cancellable = true)
     public void getAsItemStack(CallbackInfoReturnable<ItemStack> cir) {
-        if(ciif) {
+        if(invisible_item_frame) {
             Optional<? extends Recipe<?>> optional = world.getRecipeManager().get(new Identifier("ciif:invisible_glow_item_frame"));
             optional.ifPresent(recipe -> cir.setReturnValue(recipe.getOutput()));
         }

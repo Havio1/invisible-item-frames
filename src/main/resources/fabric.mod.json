@@ -1,34 +1,35 @@
 {
   "schemaVersion": 1,
-  "id": "ciif",
+  "id": "invisible_item_frames",
   "version": "${version}",
 
-  "name": "Craftable Invisible Item Frames",
+  "name": "Invisible Item Frames",
+  "authors": [
+    "RealityTest",
+    "Havio"
+  ],
   "description": "This mod allows you to craft invisible item frames and use them in a convenient way!",
   "contact": {
-    "sources": "https://github.com/RealityTest/ciif"
+    "sources": "https://github.com/Havio1/invisible-item-frames",
+    "issues": "https://github.com/Havio1/invisible-item-frames/issues"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/ciif/icon.png",
+  "license": "ARR",
+  "icon": "assets/invisible_item_frames/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "ciif.CiifMod"
+      "invisible_item_frames.InvisibleItemFrames"
     ]
   },
   "mixins": [
     "ciif.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.14.6",
     "fabric": "*",
     "minecraft": "~1.19",
     "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }

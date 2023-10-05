@@ -1,4 +1,4 @@
-package ciif.mixin;
+package invisible_item_frames.mixin;
 
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Items;
