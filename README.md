@@ -1,9 +1,26 @@
-# Fabric Example Mod
+# Invisible Item Frames
+Originally created by [RealityTest](https://github.com/RealityTest); Forked by [Havio](https://modrinth.com/user/Havio)
 
-## Setup
+# What's Included?
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+Requirements:
+```
+nbt_crafting=1.20
+minecraft_version=1.20.1
+fabric_version=0.89.0+1.20.1
+```
+This mod, with the help of NBT-Crafting, makes it possible to craft both invisible 
+item frames and invisible glow item frames.
 
-## License
+The crafting recipes are the item frame and one phantom membrane.
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+## Additional Information
+
+N/A
+
+## Download
+
+TBA
+
+## Licensing
+ARR
