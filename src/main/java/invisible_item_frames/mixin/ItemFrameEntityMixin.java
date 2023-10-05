@@ -1,5 +1,7 @@
 package invisible_item_frames.mixin;
 
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.decoration.AbstractDecorationEntity;
@@ -12,9 +14,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -67,9 +67,13 @@ public abstract class ItemFrameEntityMixin extends AbstractDecorationEntity {
 
     @Inject(method = "getAsItemStack", at = @At("HEAD"), cancellable = true)
     public void getAsItemStack(CallbackInfoReturnable<ItemStack> cir) {
+        World world = MinecraftClient.getInstance().world;
+        assert world != null;
         if(invisible_item_frame) {
-            Optional<? extends Recipe<?>> optional = world.getRecipeManager().get(new Identifier("ciif:invisible_item_frame"));
-            optional.ifPresent(recipe -> cir.setReturnValue(recipe.getOutput()));
+            Optional<? extends Recipe<?>> optional = world.getRecipeManager().get(new Identifier("invisible_item_frames:item_frame_invisible"));
+            optional.ifPresent(recipe -> {
+                cir.setReturnValue(recipe.getOutput(world.getRegistryManager()));
+            });
         }
     }
 

@@ -1,5 +1,6 @@
 package invisible_item_frames.mixin;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.decoration.GlowItemFrameEntity;
 import net.minecraft.entity.decoration.ItemFrameEntity;
@@ -17,15 +18,18 @@ import java.util.Optional;
 @Mixin(value = GlowItemFrameEntity.class)
 public abstract class GlowItemFrameEntityMixin extends ItemFrameEntityMixin {
 
-    public GlowItemFrameEntityMixin(EntityType<? extends ItemFrameEntity> entityType, World world) {
+    public GlowItemFrameEntityMixin(EntityType<? extends ItemFrameEntity> entityType, World world, World world1) {
         super(entityType, world);
     }
 
     @Inject(method = "getAsItemStack", at = @At("HEAD"), cancellable = true)
     public void getAsItemStack(CallbackInfoReturnable<ItemStack> cir) {
+        World world = MinecraftClient.getInstance().world;
+        assert world != null;
+
         if(invisible_item_frame) {
-            Optional<? extends Recipe<?>> optional = world.getRecipeManager().get(new Identifier("ciif:invisible_glow_item_frame"));
-            optional.ifPresent(recipe -> cir.setReturnValue(recipe.getOutput()));
+            Optional<? extends Recipe<?>> optional = world.getRecipeManager().get(new Identifier("invisible_item_frames:glow_item_frame_invisible"));
+            optional.ifPresent(recipe -> cir.setReturnValue(recipe.getOutput(world.getRegistryManager())));
         }
     }
 

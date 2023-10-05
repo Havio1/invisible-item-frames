@@ -1,18 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SSS",
-    "SPS",
-    "SSS"
-  ],
-  "key": {
-    "S": {
-      "item": "minecraft:stick"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:item_frame"
     },
-    "P": {
+    {
       "item": "minecraft:phantom_membrane"
     }
-  },
+  ],
   "result": {
     "item": "minecraft:item_frame",
     "data": {
@@ -32,4 +27,3 @@
     "count": 1
   }
 }
-
