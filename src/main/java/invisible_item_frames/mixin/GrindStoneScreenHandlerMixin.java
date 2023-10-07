@@ -19,7 +19,7 @@ public abstract class GrindStoneScreenHandlerMixin extends ScreenHandler {
     }
 
     @Inject(method = "onContentChanged", at = @At("HEAD"), cancellable = true)
-    public void contentChanged(Inventory inventory, CallbackInfo ci) {
+    public void invisible_item_frames$contentChanged(Inventory inventory, CallbackInfo ci) {
         if(inventory.count(Items.ITEM_FRAME) > 0 || inventory.count(Items.GLOW_ITEM_FRAME) > 0) {
             ci.cancel();
         }

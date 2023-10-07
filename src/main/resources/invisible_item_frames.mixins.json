@@ -4,11 +4,9 @@
   "package": "invisible_item_frames.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ItemFrameEntityMixin",
     "GlowItemFrameEntityMixin",
-    "GrindStoneScreenHandlerMixin"
-  ],
-  "client": [
+    "GrindStoneScreenHandlerMixin",
+    "ItemFrameEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
